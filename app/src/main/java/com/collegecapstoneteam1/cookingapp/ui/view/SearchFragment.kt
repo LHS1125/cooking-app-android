@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.collegecapstoneteam1.cookingapp.R
@@ -31,23 +32,30 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
+
+        viewModel = (activity as MainActivity).viewModel
+
         viewModel.searchResult.observe(viewLifecycleOwner) { response ->
-            val recipes = response.cOOKRCP01.recipes
+            var recipes = response
             recipeAdapter.submitList(recipes)
         }
         binding.btnLeftsearch.setOnClickListener {
             viewModel.decreaseNum()
+            viewModel.searchRecipesList()
         }
         binding.btnSearch.setOnClickListener {
             viewModel.searchRecipesList()
         }
         binding.btnRightsearch.setOnClickListener {
             viewModel.addNum()
+            viewModel.searchRecipesList()
         }
+
+
     }
 
     private fun setupRecyclerView() {
