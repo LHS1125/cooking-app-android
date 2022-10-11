@@ -48,7 +48,11 @@ class SearchFragment : Fragment() {
             viewModel.searchRecipesList()
         }
         binding.btnSearch.setOnClickListener {
+<<<<<<< HEAD
             viewModel.searchRecipes("새우")
+=======
+            viewModel.searchRecipesList()
+>>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
         }
         binding.btnRightsearch.setOnClickListener {
             viewModel.addNum()

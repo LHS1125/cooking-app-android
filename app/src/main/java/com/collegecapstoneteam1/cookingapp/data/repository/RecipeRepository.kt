@@ -13,6 +13,10 @@ interface RecipeRepository {
         startIdx: Int,
         endIdx: Int,
         recipeName: String,
+<<<<<<< HEAD
+=======
+        recipeDetail: String
+>>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
     ): Response<SearchResponse>
 
 
