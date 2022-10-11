@@ -18,12 +18,8 @@ class MainViewModel(
     private val _searchResult = MutableLiveData<List<Recipe>>()
     val searchResult: LiveData<List<Recipe>> get() = _searchResult
     private val MINNUM = 0
-<<<<<<< HEAD
     private var MAXNUM = 999
     private val PERPAGE = 5
-=======
-    private val MAXNUM = 999
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
     private var startNum = 0
     private lateinit var response: Response<SearchResponse>
 
@@ -33,12 +29,11 @@ class MainViewModel(
 
             if (response.isSuccessful) {
                 response.body()?.let { body ->
-<<<<<<< HEAD
+                    bookSearchRepository.searchRecipesList(1001, 2000).body()?.let {
+                        body.cOOKRCP01.recipes += it.cOOKRCP01.recipes
+                    }
                     MAXNUM = body.cOOKRCP01.recipes.size - 1
                     _searchResult.postValue(body.cOOKRCP01.recipes.subList(0, PERPAGE))
-=======
-                    _searchResult.postValue(body.cOOKRCP01.recipes.subList(0, 4))
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
                 }
             } else {
                 Log.d(TAG, "searchBooks: response.isNotSuccessful")
@@ -47,8 +42,8 @@ class MainViewModel(
         }
     }
 
+    /** ㅅㄷㄴㅅ  */
     fun addNum() {
-<<<<<<< HEAD
         if(startNum+PERPAGE <= MAXNUM)startNum += PERPAGE
     }
 
@@ -73,25 +68,6 @@ class MainViewModel(
                     _searchResult.postValue(body.cOOKRCP01.recipes.subList(startNum, startNum+PERPAGE))
                 }
 
-=======
-        if(startNum != MAXNUM)startNum += 5
-    }
-
-    fun decreaseNum() {
-        if (startNum != MINNUM) startNum -= 5
-
-    }
-
-    fun searchRecipes(
-        startIdx: Int,
-        endIdx: Int,
-        recipeName: String,
-        recipeDetail: String
-    ) = viewModelScope.launch(Dispatchers.IO) {
-        if (response.isSuccessful) {
-            response.body()?.let { body ->
-                _searchResult.postValue(body.cOOKRCP01.recipes.subList(startNum, startNum+4))
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
             }
         } else {
             Log.d(TAG, "searchBooks: response.isNotSuccessful")
@@ -104,16 +80,12 @@ class MainViewModel(
 
         if (response.isSuccessful) {
             response.body()?.let { body ->
-<<<<<<< HEAD
                 var lastPerPage = body.cOOKRCP01.recipes.size%5
                 if (MAXNUM - startNum < 5){
                     _searchResult.postValue(body.cOOKRCP01.recipes.subList(startNum, startNum+lastPerPage))
                 }else{
                     _searchResult.postValue(body.cOOKRCP01.recipes.subList(startNum, startNum+PERPAGE))
                 }
-=======
-                _searchResult.postValue(body.cOOKRCP01.recipes.subList(startNum, startNum+4))
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
             }
         } else {
             Log.d(TAG, "searchBooks: response.isNotSuccessful")

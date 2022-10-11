@@ -7,7 +7,7 @@ data class COOKRCP01(
     @SerializedName("RESULT")
     val rESULT: RESULT,
     @SerializedName("row")
-    val recipes: List<Recipe>,
+    var recipes: List<Recipe>,
     @SerializedName("total_count")
     val totalCount: String
 )

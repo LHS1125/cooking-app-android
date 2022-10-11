@@ -8,10 +8,7 @@ import android.widget.AdapterView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-<<<<<<< HEAD
 import coil.load
-=======
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
 import com.bumptech.glide.Glide
 import com.collegecapstoneteam1.cookingapp.data.model.Recipe
 import com.collegecapstoneteam1.cookingapp.databinding.ItemRecipePreviewBinding
@@ -45,15 +42,9 @@ class RecipeAdapter : ListAdapter<Recipe, RecipeAdapter.RecipeViewHolder>(BookDi
         fun bind(recipe: Recipe) {
             itemView.apply {
                 Glide.with(this)
-<<<<<<< HEAD
                     .load(recipe.aTTFILENOMAIN)
                     .into(binding.recipeImage)
                 binding.recipeImage.load(recipe.aTTFILENOMAIN)
-=======
-                    .load(recipe.aTTFILENOMK)
-                    .into(binding.recipeImage)
-                //binding.recipeImage.load(recipe.aTTFILENOMK)
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
                 binding.recipeTitle.text = recipe.rCPNM
                 binding.recipeCategory.text = recipe.rCPPAT2
             }

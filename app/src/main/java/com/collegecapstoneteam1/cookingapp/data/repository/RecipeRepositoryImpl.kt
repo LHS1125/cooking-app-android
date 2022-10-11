@@ -14,15 +14,7 @@ class RecipeRepositoryImpl : RecipeRepository {
         startIdx: Int,
         endIdx: Int,
         recipeName: String,
-<<<<<<< HEAD
     ): Response<SearchResponse> {
         return RetrofitInstance.api.searchRecipes(startIdx, endIdx, recipeName)
-=======
-        recipeDetail: String
-    ): Response<SearchResponse> {
-        return RetrofitInstance.api.searchRecipes(startIdx, endIdx, recipeName, recipeDetail)
->>>>>>> 486c591389c772b6890b9a2fd46a02c78b1b8488
     }
-
-
 }
